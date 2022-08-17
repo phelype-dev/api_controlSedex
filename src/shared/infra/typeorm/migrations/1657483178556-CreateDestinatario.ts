@@ -1,6 +1,8 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateDestinatario1657483178556 implements MigrationInterface {
+export class CreateDestinatario1657483178556
+  implements MigrationInterface
+{
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -28,7 +30,7 @@ export class CreateDestinatario1657483178556 implements MigrationInterface {
           },
           {
             name: 'desc_cpf',
-            type: 'varchar',
+            type: 'int',
             isNullable: true,
           },
           {
@@ -38,7 +40,7 @@ export class CreateDestinatario1657483178556 implements MigrationInterface {
           },
           {
             name: 'desc_numero',
-            type: 'varchar',
+            type: 'int',
             isNullable: true,
           },
           {
@@ -53,22 +55,22 @@ export class CreateDestinatario1657483178556 implements MigrationInterface {
           },
           {
             name: 'desc_cep',
-            type: 'varchar',
+            type: 'int',
             isNullable: false,
           },
           {
             name: 'desc_fixo',
-            type: 'varchar',
+            type: 'int',
             isNullable: false,
           },
           {
             name: 'desc_movel',
-            type: 'varchar',
+            type: 'int',
             isNullable: false,
           },
           {
             name: 'desc_ativo',
-            type: 'varchar',
+            type: 'boolean',
             isNullable: false,
           },
           {

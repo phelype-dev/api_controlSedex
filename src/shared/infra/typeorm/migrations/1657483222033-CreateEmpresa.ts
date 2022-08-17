@@ -15,7 +15,7 @@ export class CreateEmpresa1657483222033
           },
           {
             name: 'emp_cnpj',
-            type: 'varchar',
+            type: 'bigint',
             isNullable: false,
           },
           {
@@ -40,7 +40,7 @@ export class CreateEmpresa1657483222033
           },
           {
             name: 'emp_numero',
-            type: 'varchar',
+            type: 'int',
             isNullable: false,
           },
           {
@@ -55,7 +55,7 @@ export class CreateEmpresa1657483222033
           },
           {
             name: 'emp_cep',
-            type: 'varchar',
+            type: 'int',
             isNullable: false,
           },
           {

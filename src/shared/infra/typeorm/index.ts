@@ -4,7 +4,9 @@ import { EquipmentType } from '@modules/Equipamento/infra/typeorm/entities/Equip
 import { Estado } from '@modules/Estado/infra/typeorm/entities/Estados';
 import { TipoItems } from '@modules/Item/infra/typeorm/entities/ItemTipo';
 import { DataSource } from 'typeorm';
+import { Companies } from '../../../modules/Empresa/infra/typeorm/entities/Companies';
 import { TipoEmpresa1657480379456 } from './migrations/1657480379456-TipoEmpresa';
+import { CreateEmpresa1657483222033 } from './migrations/1657483222033-CreateEmpresa';
 import { CreateCidade1657483239528 } from './migrations/1657483239528-CreateCidade';
 import { CreateEstado1657483248100 } from './migrations/1657483248100-CreateEstado';
 import { CreateTipoItem1657483255055 } from './migrations/1657483255055-CreateTipoItem';
@@ -17,12 +19,20 @@ export const dataSource = new DataSource({
   username: 'postgres',
   password: '1234567890',
   database: 'controlesedex',
-  entities: [Estado, City, TipoEmpresa, TipoItems, EquipmentType],
+  entities: [
+    Estado,
+    City,
+    TipoEmpresa,
+    TipoItems,
+    EquipmentType,
+    Companies,
+  ],
   migrations: [
     CreateEstado1657483248100,
     CreateTipoEquipamento1657483284383,
     CreateCidade1657483239528,
     TipoEmpresa1657480379456,
     CreateTipoItem1657483255055,
+    CreateEmpresa1657483222033,
   ],
 });

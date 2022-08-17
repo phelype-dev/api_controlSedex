@@ -9,6 +9,8 @@ import { ICityRepository } from '@modules/City/repositories/ICityRepository';
 import { CityRepository } from '@modules/City/infra/typeorm/repositories/CitysRepository';
 import { IEquipamentTypesRepository } from '@modules/Equipamento/repositories/IEquipamentTypesRepository';
 import { EquipamentTypeRepository } from '@modules/Equipamento/infra/typeorm/repositories/EquipamentTypeRepository';
+import { ICreateCompaniesRepository } from '@modules/Empresa/repositories/IcreateCompaniesRepository';
+import { CompanyRepository } from '@modules/Empresa/infra/typeorm/repositories/CompanyRepository';
 
 container.registerSingleton<ITipoEmpresaRepository>(
   'TipoEmpresaRepository',
@@ -33,4 +35,9 @@ container.registerSingleton<ICityRepository>(
 container.registerSingleton<IEquipamentTypesRepository>(
   'EquipamentTypeRepository',
   EquipamentTypeRepository,
+);
+
+container.registerSingleton<ICreateCompaniesRepository>(
+  'CompanyRepository',
+  CompanyRepository,
 );
