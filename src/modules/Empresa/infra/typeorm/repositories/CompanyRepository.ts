@@ -41,7 +41,7 @@ class CompanyRepository implements ICreateCompaniesRepository {
     this.repositories.save(companies);
     return companies;
   }
-  async findByCNPJ(emp_cnpj: number): Promise<Companies> {
+  async findByCNPJ(emp_cnpj: string): Promise<Companies> {
     const companyCnpj = this.repositories.findOneBy({
       emp_cnpj,
     });

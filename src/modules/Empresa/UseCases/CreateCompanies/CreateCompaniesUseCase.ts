@@ -1,10 +1,11 @@
 import { Companies } from '@modules/Empresa/infra/typeorm/entities/Companies';
 import { ICreateCompaniesRepository } from '@modules/Empresa/repositories/IcreateCompaniesRepository';
+import { IValidatorsProvider } from '@shared/container/providers/ValidatorsProvider/IValidatorsProvider';
 import { AppError } from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
-  emp_cnpj: number;
+  emp_cnpj: string;
   emp_razao_social: string;
   emp_operacao: string;
   emp_descricao: string;
@@ -23,6 +24,8 @@ class CreateCompaniesUseCase {
   constructor(
     @inject('CompanyRepository')
     private companiesRepository: ICreateCompaniesRepository,
+    @inject('ValidatorCNPJ')
+    private validator: IValidatorsProvider,
   ) {}
 
   async execute({
@@ -39,11 +42,32 @@ class CreateCompaniesUseCase {
     est_codigo,
     tem_codigo,
   }: IRequest): Promise<Companies> {
-    const companyAlreadyExists =
-      this.companiesRepository.findByCNPJ(emp_cnpj);
+    const companyAlreadyExistsCnpj =
+      await this.companiesRepository.findByCNPJ(emp_cnpj);
 
-    if (companyAlreadyExists) {
-      throw new AppError('Company already exists');
+    const verificationResult = this.validator.ValidatorCNPJ(emp_cnpj);
+
+    const companyAlreadyExistsName =
+      await this.companiesRepository.findByCompanyName(
+        emp_razao_social,
+      );
+
+    if (verificationResult === false) {
+      throw new AppError(
+        `Heads up ! CNPJ; ${emp_cnpj} entered does not correspond to a valid value. Please check and try again!`,
+      );
+    }
+
+    if (companyAlreadyExistsCnpj) {
+      throw new AppError(
+        `Heads up ! There is already a company with this CNPJ: ${emp_cnpj}`,
+      );
+    }
+
+    if (companyAlreadyExistsName) {
+      throw new AppError(
+        'Heads up ! There is already a company with that name',
+      );
     }
 
     const companies = await this.companiesRepository.create({

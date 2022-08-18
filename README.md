@@ -15,7 +15,8 @@ A partir dessa parte será informado o item que está sendo trabalhado, contendo
 
 - [x]  Adicionando banco de dados;
 - [x]  Não aceitar adicionar empresa com mesmo CNPJ;
-- [ ]  Validar se existe empresa com mesmo nome;
+- [x]  Validar se existe empresa com mesmo nome;
 - [ ]  Validar se ID do State corresponde a foreignKey da City;
-- [ ]  Validar CNPJ;
+- [x]  Validar CNPJ;
 - [ ]  Validar CEP;
+- [x]  Criar Functions para validar CNPJ e CEP

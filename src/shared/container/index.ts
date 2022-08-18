@@ -11,6 +11,7 @@ import { IEquipamentTypesRepository } from '@modules/Equipamento/repositories/IE
 import { EquipamentTypeRepository } from '@modules/Equipamento/infra/typeorm/repositories/EquipamentTypeRepository';
 import { ICreateCompaniesRepository } from '@modules/Empresa/repositories/IcreateCompaniesRepository';
 import { CompanyRepository } from '@modules/Empresa/infra/typeorm/repositories/CompanyRepository';
+import '@shared/container/providers';
 
 container.registerSingleton<ITipoEmpresaRepository>(
   'TipoEmpresaRepository',

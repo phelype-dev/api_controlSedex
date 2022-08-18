@@ -15,7 +15,7 @@ export class CreateEmpresa1657483222033
           },
           {
             name: 'emp_cnpj',
-            type: 'bigint',
+            type: 'varchar',
             isNullable: false,
           },
           {

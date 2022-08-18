@@ -7,7 +7,7 @@ class Companies {
   emp_codigo: string;
 
   @Column()
-  emp_cnpj: number;
+  emp_cnpj: string;
 
   @Column()
   emp_razao_social: string;

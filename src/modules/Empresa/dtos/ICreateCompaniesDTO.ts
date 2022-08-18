@@ -1,5 +1,5 @@
 interface ICreateCompaniesDto {
-  emp_cnpj: number;
+  emp_cnpj: string;
   emp_razao_social: string;
   emp_operacao: string;
   emp_descricao: string;
