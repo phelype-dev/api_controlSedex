@@ -42,7 +42,7 @@ class ValidatorCNPJ implements IValidatorsProvider {
     if (items.length === 1) return false;
 
     // Cálculo validador
-    const calc = x => {
+    const calc = (x: number) => {
       const slice = numbers.slice(0, x);
       let factor = x - 7;
       let sum = 0;
@@ -69,8 +69,9 @@ class ValidatorCNPJ implements IValidatorsProvider {
     const digit1 = calc(13);
     return digit1 === digits[1];
   }
-  ValidatorCEP(cep: number): number {
-    throw new Error('Method not implemented.');
+  ValidatorCEP(cep: number): boolean {
+    const valueCEP = /^[0-9]{8}$/;
+    return valueCEP.test(cep.toString());
   }
 }
 

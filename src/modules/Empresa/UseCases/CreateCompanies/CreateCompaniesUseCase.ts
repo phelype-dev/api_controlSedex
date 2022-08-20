@@ -7,7 +7,7 @@ import { inject, injectable } from 'tsyringe';
 interface IRequest {
   emp_cnpj: string;
   emp_razao_social: string;
-  emp_operacao: string;
+  emp_operacao?: string;
   emp_descricao: string;
   emp_logradouro: string;
   emp_numero: number;
@@ -46,6 +46,7 @@ class CreateCompaniesUseCase {
       await this.companiesRepository.findByCNPJ(emp_cnpj);
 
     const verificationResult = this.validator.ValidatorCNPJ(emp_cnpj);
+    const verificationCEP = this.validator.ValidatorCEP(emp_cep);
 
     const companyAlreadyExistsName =
       await this.companiesRepository.findByCompanyName(
@@ -54,7 +55,13 @@ class CreateCompaniesUseCase {
 
     if (verificationResult === false) {
       throw new AppError(
-        `Heads up ! CNPJ; ${emp_cnpj} entered does not correspond to a valid value. Please check and try again!`,
+        `Heads up ! CNPJ: ${emp_cnpj} entered does not correspond to a valid value. Please check and try again!`,
+      );
+    }
+
+    if (verificationCEP === false) {
+      throw new AppError(
+        `Heads up ! CEP: ${emp_cep} entered does not correspond to a valid value. Please check and try again!`,
       );
     }
 

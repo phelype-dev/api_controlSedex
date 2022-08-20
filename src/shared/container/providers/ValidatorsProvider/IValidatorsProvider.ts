@@ -1,6 +1,6 @@
 interface IValidatorsProvider {
   ValidatorCNPJ(cnpj: string): boolean;
-  ValidatorCEP(cep: number): number;
+  ValidatorCEP(cep: number): boolean;
 }
 
 export { IValidatorsProvider };
