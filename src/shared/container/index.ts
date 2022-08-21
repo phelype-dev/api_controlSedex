@@ -12,6 +12,8 @@ import { EquipamentTypeRepository } from '@modules/Equipamento/infra/typeorm/rep
 import { ICreateCompaniesRepository } from '@modules/Empresa/repositories/IcreateCompaniesRepository';
 import { CompanyRepository } from '@modules/Empresa/infra/typeorm/repositories/CompanyRepository';
 import '@shared/container/providers';
+import { ICreateSendersRepository } from '@modules/Senders/repository/ICreateSendersRepository';
+import { SendersRepository } from '@modules/Senders/infra/typeorm/repositories/SendersRepository';
 
 container.registerSingleton<ITipoEmpresaRepository>(
   'TipoEmpresaRepository',
@@ -41,4 +43,9 @@ container.registerSingleton<IEquipamentTypesRepository>(
 container.registerSingleton<ICreateCompaniesRepository>(
   'CompanyRepository',
   CompanyRepository,
+);
+
+container.registerSingleton<ICreateSendersRepository>(
+  'SendersRepository',
+  SendersRepository,
 );

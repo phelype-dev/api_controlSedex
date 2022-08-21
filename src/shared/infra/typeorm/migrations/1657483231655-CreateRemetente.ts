@@ -1,6 +1,8 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateRemetente1657483231655 implements MigrationInterface {
+export class CreateRemetente1657483231655
+  implements MigrationInterface
+{
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({

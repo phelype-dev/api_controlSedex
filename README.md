@@ -13,10 +13,15 @@ A partir dessa parte será informado o item que está sendo trabalhado, contendo
 
 ## Router Empresa
 
-- [x]  Adicionando banco de dados;
-- [x]  Não aceitar adicionar empresa com mesmo CNPJ;
-- [x]  Validar se existe empresa com mesmo nome;
-- [x]  Criar Functions para validar CNPJ e CEP
-- [x]  Validar CNPJ;
-- [x]  Validar CEP;
+- [x] Adicionando banco de dados;
+- [x] Não aceitar adicionar empresa com mesmo CNPJ;
+- [x] Validar se existe empresa com mesmo nome;
+- [x] Criar Functions para validar CNPJ e CEP
+- [x] Validar CNPJ;
+- [x] Validar CEP;
 
+##Router Sender
+
+ - [X] Adicionando banco de dados;
+ - [X] Não aceitar Destinatários com mesmo nome;
+ - [X] Criar function para validar Telefones;
