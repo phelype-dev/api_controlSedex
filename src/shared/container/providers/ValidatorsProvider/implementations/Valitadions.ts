@@ -1,6 +1,6 @@
 import { IValidatorsProvider } from '../IValidatorsProvider';
 
-class ValidatorCNPJ implements IValidatorsProvider {
+class Validator implements IValidatorsProvider {
   ValidatorCNPJ(cnpj: string): boolean {
     if (!cnpj) return false;
 
@@ -73,6 +73,23 @@ class ValidatorCNPJ implements IValidatorsProvider {
     const valueCEP = /^[0-9]{8}$/;
     return valueCEP.test(cep.toString());
   }
+  validationCell(numberCell: string): boolean {
+    const cellNumber = /^[0-9]{11}$/.test(numberCell);
+    if (cellNumber) {
+      return false;
+    }
+    return true;
+  }
+  validationPhone(numberPhone: string): boolean {
+    if (numberPhone.length < 10) {
+      return false;
+    }
+    const cellNumber = /^[0-9]{10}$/.test(numberPhone);
+    if (!cellNumber) {
+      return false;
+    }
+    return true;
+  }
 }
 
-export { ValidatorCNPJ };
+export { Validator };
