@@ -74,8 +74,14 @@ class Validator implements IValidatorsProvider {
     return valueCEP.test(cep.toString());
   }
   validationCell(numberCell: string): boolean {
-    const cellNumber = /^[0-9]{11}$/.test(numberCell);
-    if (cellNumber) {
+    if (numberCell.length < 11) {
+      return false;
+    }
+    const cellNumber =
+      /^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}-?[0-9]{3}$/.test(
+        numberCell,
+      );
+    if (!cellNumber) {
       return false;
     }
     return true;
@@ -84,8 +90,10 @@ class Validator implements IValidatorsProvider {
     if (numberPhone.length < 10) {
       return false;
     }
-    const cellNumber = /^[0-9]{10}$/.test(numberPhone);
-    if (!cellNumber) {
+    const phoneNumber = /^\([1-9]{2}\)[0-9]{4}?[0-9]{4}$/.test(
+      numberPhone,
+    );
+    if (!phoneNumber) {
       return false;
     }
     return true;

@@ -21,6 +21,9 @@ class Senders {
   @Column()
   emp_codigo: string;
 
+  @Column()
+  rem_ativo: boolean;
+
   constructor() {
     if (!this.rem_codigo) {
       this.rem_codigo = uuidv4();

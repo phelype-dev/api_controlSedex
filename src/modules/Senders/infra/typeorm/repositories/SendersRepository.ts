@@ -16,6 +16,7 @@ class SendersRepository implements ICreateSendersRepository {
     rem_fixo,
     rem_movel,
     emp_codigo,
+    rem_ativo,
   }: ICreateSendersDTO): Promise<Senders> {
     const sender = this.repository.create({
       rem_remetente,
@@ -23,6 +24,7 @@ class SendersRepository implements ICreateSendersRepository {
       rem_fixo,
       rem_movel,
       emp_codigo,
+      rem_ativo,
     });
     this.repository.save(sender);
     return sender;

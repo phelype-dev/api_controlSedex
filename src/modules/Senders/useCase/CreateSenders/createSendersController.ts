@@ -13,6 +13,7 @@ class CreateSendersController {
       rem_fixo,
       rem_movel,
       emp_codigo,
+      rem_ativo,
     } = request.body;
 
     const createSendersUseCase = container.resolve(
@@ -25,6 +26,7 @@ class CreateSendersController {
       rem_fixo,
       rem_movel,
       emp_codigo,
+      rem_ativo,
     });
 
     return response.status(201).json(senders);

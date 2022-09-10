@@ -10,6 +10,7 @@ interface IRequest {
   rem_fixo?: string;
   rem_movel: string;
   emp_codigo: string;
+  rem_ativo: boolean;
 }
 
 @injectable()
@@ -27,6 +28,7 @@ class CreateSendersUseCase {
     rem_fixo,
     rem_movel,
     emp_codigo,
+    rem_ativo,
   }: IRequest): Promise<Senders> {
     const senderAlreadyExists =
       await this.senderRepository.findByNames(rem_remetente);
@@ -58,6 +60,7 @@ class CreateSendersUseCase {
       rem_fixo,
       rem_movel,
       emp_codigo,
+      rem_ativo,
     });
     return senders;
   }

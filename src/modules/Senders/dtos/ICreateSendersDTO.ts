@@ -5,6 +5,7 @@ interface ICreateSendersDTO {
   rem_fixo?: string;
   rem_movel: string;
   emp_codigo: string;
+  rem_ativo: boolean;
 }
 
 export { ICreateSendersDTO };

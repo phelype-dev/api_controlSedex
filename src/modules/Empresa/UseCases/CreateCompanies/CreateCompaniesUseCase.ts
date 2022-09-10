@@ -24,7 +24,7 @@ class CreateCompaniesUseCase {
   constructor(
     @inject('CompanyRepository')
     private companiesRepository: ICreateCompaniesRepository,
-    @inject('ValidatorCNPJ')
+    @inject('Validator')
     private validator: IValidatorsProvider,
   ) {}
 

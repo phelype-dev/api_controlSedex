@@ -13,6 +13,7 @@ import { CreateCidade1657483239528 } from './migrations/1657483239528-CreateCida
 import { CreateEstado1657483248100 } from './migrations/1657483248100-CreateEstado';
 import { CreateTipoItem1657483255055 } from './migrations/1657483255055-CreateTipoItem';
 import { CreateTipoEquipamento1657483284383 } from './migrations/1657483284383-CreateTipoEquipamento';
+import { UpdateRemetente1662832116742 } from './migrations/1662832116742-UpdateRemetente';
 
 export const dataSource = new DataSource({
   type: 'postgres',
@@ -38,5 +39,6 @@ export const dataSource = new DataSource({
     CreateTipoItem1657483255055,
     CreateEmpresa1657483222033,
     CreateRemetente1657483231655,
+    UpdateRemetente1662832116742,
   ],
 });
